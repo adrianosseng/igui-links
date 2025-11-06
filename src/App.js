@@ -25,19 +25,19 @@ useEffect(() => {
   const links = [
     {
       nome: "WhatsApp iGUi BRS-BA",
-      url: "https://wa.me/seu_link_aqui",
+      url: "https://wa.me/5577999364498",
       cor: "#25D366",
       icone: <FaWhatsapp size={50} color="#25D366" />,
     },
     {
       nome: "Instagram iGUi BRS-BA",
-      url: "https://www.instagram.com/seu_link_aqui",
+      url: "https://www.instagram.com/iguibarreiras.oestebaiano?igsh=NXYzcGRuMmFiYnVr&utm_source=qr",
       cor: "#E4405F",
       icone: <FaInstagram size={50} color="#E4405F" />,
     },
     {
       nome: "iGUi Cerâmica",
-      url: "https://iguiceramica.com.br",
+      url: "https://totem.igui.com/pools",
       cor: "#009FE3",
       icone: (
         <img
@@ -49,7 +49,7 @@ useEffect(() => {
     },
     {
       nome: "iGUi UNLIMITED",
-      url: "https://iguiunlimited.com.br",
+      url: "https://www.unlimitedpool.com/",
       cor: "#555",
       icone: (
         <img
