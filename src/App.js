@@ -5,21 +5,20 @@ import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
 
-  
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setShowWelcome(false);
-    window.scrollTo(0, 0); // força o scroll para o topo
-  }, 3000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
+      window.scrollTo(0, 0); // força o scroll para o topo
+    }, 3000);
 
-  return () => clearTimeout(timer);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
   const perfil = {
     nome: "iGUi - BARREIRAS E OESTE-BA",
     descricao:
       "Acesse nossos canais de relacionamento e descubra um novo conceito de piscinas.",
-    imagem: "/profile.png",
+    imagem: process.env.PUBLIC_URL + "/profile.png",
   };
 
   const links = [
@@ -41,7 +40,7 @@ useEffect(() => {
       cor: "#009FE3",
       icone: (
         <img
-          src="/igui-logo.png"
+          src={process.env.PUBLIC_URL + "/igui-logo.png"}
           alt="iGUi Cerâmica"
           style={{ width: "50px", height: "50px" }}
         />
@@ -53,7 +52,7 @@ useEffect(() => {
       cor: "#555",
       icone: (
         <img
-          src="/igui-unlimited.png"
+          src={process.env.PUBLIC_URL + "/igui-unlimited.png"}
           alt="iGUi UNLIMITED"
           style={{ width: "50px", height: "50px" }}
         />
@@ -76,42 +75,42 @@ useEffect(() => {
     >
       {/* Tela de boas-vindas */}
       <AnimatePresence>
-      {showWelcome && (
-  <motion.div
-    initial={{ y: "100%", opacity: 0 }}
-    animate={{ y: "0%", opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 1, ease: "easeOut" }}
-    style={{
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundColor: "#fff", // fundo branco
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      zIndex: 1000,
-    }}
-  >
-    <motion.img
-      src="/boasvindas.png"
-      alt="Boas-vindas"
-      initial={{ y: 200, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
-      style={{
-        width: "100%",
-        maxWidth: "500px", // limite opcional
-        objectFit: "contain",
-      }}
-    />
-  </motion.div>
-)}
+        {showWelcome && (
+          <motion.div
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "#fff",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 1000,
+            }}
+          >
+            <motion.img
+              src={process.env.PUBLIC_URL + "/boasvindas.png"}
+              alt="Boas-vindas"
+              initial={{ y: 200, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              style={{
+                width: "100%",
+                maxWidth: "500px",
+                objectFit: "contain",
+              }}
+            />
+          </motion.div>
+        )}
       </AnimatePresence>
 
-      {/* Cabeçalho com perfil */}
+      {/* Conteúdo principal */}
       {!showWelcome && (
         <>
           <div style={{ textAlign: "center", marginBottom: 30 }}>
@@ -132,7 +131,6 @@ useEffect(() => {
             <p style={{ color: "#666", fontSize: 14 }}>{perfil.descricao}</p>
           </div>
 
-          {/* Lista de links responsiva */}
           <div style={{ width: "100%", maxWidth: 400 }}>
             {links.map((link) => (
               <a
